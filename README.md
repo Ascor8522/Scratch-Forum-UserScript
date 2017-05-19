@@ -7,6 +7,6 @@ The main goal of this script is to add an easier way to personalize the text you
 <br> • Adding custom emojis easily
 <br> • More coming soon...
 <br>
-All usefull informations can be found on: https://smrman.github.io/Scratch-Forum-UserScript/
+All usefull informations can be found on: https://smrman.github.io/Scratch-Forum-UserScript/index.html
 
 The license ca be found on: 
