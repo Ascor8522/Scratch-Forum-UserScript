@@ -7,8 +7,8 @@
 // @homepageURL  http://github.com/Smrman/Scratch-Forum-UserScript
 // @iconURL      https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script-icon128x128.png
 // @icon64URL    https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script-icon64x64.png
-// @updateURL
-// @downloadURL
+// @updateURL    https://github.com/Smrman/Scratch-Forum-UserScript/raw/master/Scratch-Forum-UserScript.user.js
+// @downloadURL  https://github.com/Smrman/Scratch-Forum-UserScript/raw/master/Scratch-Forum-UserScript.user.js
 // @supportURL   !!!!!!!!!!!!!!
 // @include      https://scratch.mit.edu/discuss/topic/*
 // @match        https://scratch.mit.edu/discuss/topic/*
