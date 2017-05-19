@@ -9,7 +9,7 @@
     logoAscor.style.borderWidth = "1px";
     logoAscor.style.borderStyle = "solid";
     logoAscor.style.marginLeft = "5px";
-    logoAscor.style.backgroundImage = 'url("http://i.cubeupload.com/hJNna8.png")';
+    logoAscor.style.backgroundImage = 'url("https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/Ascor%20logo.png")';
     logoAscor.style.backgroundRepeat = "no-repeat";
     logoAscor.style.textDecoration = "none";
     logoAscor.style.color = "black";
