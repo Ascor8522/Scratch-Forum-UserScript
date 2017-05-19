@@ -9,7 +9,7 @@
 // @icon64URL    https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script-icon64x64.png
 // @updateURL    https://github.com/Smrman/Scratch-Forum-UserScript/raw/master/Scratch-Forum-UserScript.user.js
 // @downloadURL  https://github.com/Smrman/Scratch-Forum-UserScript/raw/master/Scratch-Forum-UserScript.user.js
-// @supportURL   !!!!!!!!!!!!!!
+// @supportURL   https://smrman.github.io/Scratch-Forum-UserScript/index.html
 // @include      https://scratch.mit.edu/discuss/topic/*
 // @match        https://scratch.mit.edu/discuss/topic/*
 // @exclude
