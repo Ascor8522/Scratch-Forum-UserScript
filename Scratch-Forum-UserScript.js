@@ -1,5 +1,6 @@
 (function() {
     'use strict';
+    console.log("Scratch-Forum-UserScript by Smrman | update 21-05-17 21:30 GMT");
     var urllong = window.location.href;
     var urlcourt = "";
     var position = 0;
