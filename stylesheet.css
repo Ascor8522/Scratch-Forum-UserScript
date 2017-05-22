@@ -1,5 +1,5 @@
 /* The switch - the box around the slider */
-.switch {
+.switcher1 {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -7,7 +7,7 @@
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switcher1 input {display:none;}
 
 /* The slider */
 .slider {
