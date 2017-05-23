@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    console.log("Scratch-Forum-UserScript by Smrman | update 21-05-17 21:30 GMT");
+    console.log("Scratch-Forum-UserScript by Smrman | update 23-05-17 18:00 GMT");
     var urllong = window.location.href;
     var urlcourt = "";
     var position = 0;
@@ -14,6 +14,7 @@
 		position ++;
         i = i + 1;
     } while (i<5 && position < urllong.length);
+    console.log("You are currently on page " + urlcourt);
     if (urlcourt=="https://scratch.mit.edu/discuss/topic/"){
 		var range, sel;
 		// == Ascor Logo ==
