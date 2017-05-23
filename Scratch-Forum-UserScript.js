@@ -94,6 +94,18 @@
     }
 	
     if (urlcourt=="https://scratch.mit.edu/accounts/settings/"){
-		
+	var form = document.createElement("form");
+	form.className = "switch";
+	form.id = "switchid";
+	document.getElementById("main-content").appendChild(form);
+	var label = document.createElement("label");
+	label.innerHTML = "<hr><h3>Paramètres de l'extension Scratch-Forum-UserScript</h3><br>Lecture automatique des projets dans la recherche activée (nécessite un ordinateur costaud)";
+	document.getElementById("switchid").appendChild(label);
+	var input = document.createElement("input");
+	input.type = "checkbox";
+	input.id = "inputid";
+	input.onclick = cocher() {
+	};
+	document.getElementById("switchid").appendChild(input);
     }
 })();
