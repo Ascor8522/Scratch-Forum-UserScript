@@ -94,6 +94,7 @@
     }
 	
     if (urlcourt=="https://scratch.mit.edu/accounts/settings/"){
+	   /*
 	var form = document.createElement("form");
 	form.className = "switch";
 	form.id = "switchid";
@@ -105,5 +106,6 @@
 	input.type = "checkbox";
 	input.id = "inputid";
 	document.getElementById("switchid").appendChild(input);
+	*/
     }
 })();
