@@ -14,7 +14,7 @@
 // @match        https://scratch.mit.edu/*
 // @exclude
 // @require      https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/Scratch-Forum-UserScript.js
-// @resource
+// @resource     https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/stylesheet.css
 // @connect
 // @run-at       document-idle
 // @grant        none
