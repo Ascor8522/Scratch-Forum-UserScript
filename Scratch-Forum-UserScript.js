@@ -104,8 +104,6 @@
 	var input = document.createElement("input");
 	input.type = "checkbox";
 	input.id = "inputid";
-	input.onclick = cocher() {
-	};
 	document.getElementById("switchid").appendChild(input);
     }
 })();
