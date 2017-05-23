@@ -5,15 +5,15 @@
     var urlcourt = "";
     var position = 0;
     var i = 0;
-    while (i<5 && position < urllong.length){
-    	while (urllong.charAt(position) != "/"){
+    do {
+    	while (urllong.charAt(position) != "/" && position < urllong.length){
 			urlcourt = urlcourt + urllong.charAt(position);
 			position ++;
 		}
 		urlcourt = urlcourt + urllong.charAt(position);
 		position ++;
         i = i + 1;
-    }
+    } while (i<5 && position < urllong.length);
     if (urlcourt=="https://scratch.mit.edu/discuss/topic/"){
 		var range, sel;
 		// == Ascor Logo ==
