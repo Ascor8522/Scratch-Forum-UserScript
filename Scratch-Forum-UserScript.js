@@ -95,6 +95,7 @@
     }
 	
     if (urlcourt=="https://scratch.mit.edu/accounts/settings/"){
+    	console.log('[INFO] Activation "Settings" features');
 	   /*
 	var form = document.createElement("form");
 	form.className = "switch";
@@ -109,4 +110,5 @@
 	document.getElementById("switchid").appendChild(input);
 	*/
     }
+    console.warn("[HELP] Help is avaliable for the Scratch Userscript on https://smrman.github.io/Scratch-Forum-UserScript/contact.html");
 })();
