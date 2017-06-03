@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Scratch-Forum-UserScript
 // @namespace    http://github.com/Smrman/Scratch-Forum-UserScript
-// @version      1.3.2
+// @version      1.4
 // @author       Smrman
 // @description  Adds buttons in html source code on the forum pages of Scratch.
 // @homepageURL  http://github.com/Smrman/Scratch-Forum-UserScript
@@ -19,5 +19,4 @@
 // @run-at       document-idle
 // @grant        none
 // @unwrap
-// @nocompat Chrome
 // ==/UserScript==
