@@ -15,7 +15,7 @@
         i = i + 1;
     } while (i<5 && position < urllong.length);
     console.log("[INFO] You are currently on page " + urlcourt);
-    if (urlcourt=="https://scratch.mit.edu/discuss/topic/" && (document.getElementsByTagName("ul").length - 20)>0){
+    if (urlcourt=="https://scratch.mit.edu/discuss/topic/" && document.getElementsById("id_body").length>0){
     	console.log('[INFO] Activating "Discuss" features');
 		var range, sel;
 		// == Ascor Logo ==
