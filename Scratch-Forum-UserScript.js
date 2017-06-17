@@ -93,6 +93,9 @@
 		var placecouleur = document.getElementsByTagName("ul").length - 22;
 		document.getElementsByTagName("ul")[placecouleur].appendChild(listecouleur);
     }
+	else {
+		console.log('[INFO] No reply zone detected.');
+	}
 	
 	if (urlcourt=="https://scratch.mit.edu/discuss/settings/"){
 		console.log('[INFO] Activating "Signature" features');
