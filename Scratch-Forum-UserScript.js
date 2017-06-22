@@ -1,14 +1,3 @@
-// ==UserScript==
-// @name         Test script
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @include      https://scratch.mit.edu/*
-// @match        https://scratch.mit.edu/*
-// @grant        none
-// ==/UserScript==
-
 (function() {
     'use strict';
 	console.clear();
