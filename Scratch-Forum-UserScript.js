@@ -1,185 +1,222 @@
+// ==UserScript==
+// @name         Test script
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @include      https://scratch.mit.edu/*
+// @match        https://scratch.mit.edu/*
+// @grant        none
+// ==/UserScript==
+
 (function() {
     'use strict';
 	console.clear();
-    console.info("[INFO] Scratch-Forum-UserScript by Smrman | update 17-07-17 21:00 GMT+1");
-    var urllong = window.location.href;
-    var urlcourt = "";
-    var position = 0;
-    var i = 0;
-    do {
-    	while (urllong.charAt(position) != "/" && position < urllong.length){
-			urlcourt = urlcourt + urllong.charAt(position);
-			position ++;
+	var UpdateHour = "17:00";
+	var UpdateDate = "22-06-2017";
+    console.info("[INFO] Scratch-Forum-UserScript by Smrman | update " + UpdateDate + " " + UpdateHour + " GMT+1");
+    
+	// Déclaration variables
+	
+	var range;
+	var sel;
+	var AscorLogo;
+	var AscorListe;
+	var AscorPlace;
+	var CouleurTexte;
+	var CouleurCode;
+	var CouleurListe;
+	var CouleurPlace;
+	var AscorURLLogo = 'http://i.cubeupload.com/hJNna8.png';
+	var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/contact.html";
+	var URLTopic = "https://scratch.mit.edu/discuss/topic/";
+	var URLSignature = "https://scratch.mit.edu/discuss/settings/";
+	var URLSettings = "https://scratch.mit.edu/accounts/settings/";
+	var URLCourt = "";
+    var URLPosition = 0;
+    var URLLong = window.location.href;
+	var URLSlashCount = 0;
+	
+	// Déterminer page en cours
+	
+	do {
+    	while (URLLong.charAt(URLPosition) != "/" && URLPosition < URLLong.length){
+			URLCourt = URLCourt + URLLong.charAt(URLPosition);
+			URLPosition = URLPosition + 1;
 		}
-		urlcourt = urlcourt + urllong.charAt(position);
-		position ++;
-        i = i + 1;
-    } while (i<5 && position < urllong.length);
-    console.log("[INFO] You are currently on page " + urlcourt);
-    if (urlcourt=="https://scratch.mit.edu/discuss/topic/" && document.getElementsByTagName("textarea").length>0){
+		URLCourt = URLCourt + URLLong.charAt(URLPosition);
+		URLPosition = URLPosition + 1;
+        URLSlashCount = URLSlashCount + 1;
+    } while (URLSlashCount < 5 && URLPosition < URLLong.length);
+    console.log("[INFO] You are currently on page " + URLCourt);
+    
+	// Si sur page "Topic"
+	
+	if (URLCourt == URLTopic && document.getElementsByTagName("textarea").length > 0){
     	console.log('[INFO] Activating "Discuss" features');
-		var range, sel;
+		
 		// == Ascor Logo ==
-		var logoAscor = document.createElement("Div");
-		logoAscor.style.height = "15px";
-		logoAscor.style.width = "15px";
-		logoAscor.style.border = "black";
-		logoAscor.style.borderWidth = "1px";
-		logoAscor.style.borderStyle = "solid";
-		logoAscor.style.marginLeft = "5px";
-		logoAscor.style.backgroundImage = 'url("https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/Ascor%20logo.png")';
-		logoAscor.style.backgroundRepeat = "no-repeat";
-		logoAscor.style.textDecoration = "none";
-		logoAscor.style.color = "black";
-		logoAscor.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
-		logoAscor.style.fontSize = "13px";
-		logoAscor.id = "nouveaubouton";
-		logoAscor.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascor";
-		var lienimageascor = '[img]http://i.cubeupload.com/hJNna8.png[/img]';
-		var listascor = document.createElement("Li");
-		listascor.appendChild(logoAscor);
-		listascor.style.cursor = "pointer";
-		listascor.title = "Logo Ascor";
-		listascor.onclick = function() {
+		
+		AscorLogo = document.createElement("Div");
+		AscorLogo.style.height = "15px";
+		AscorLogo.style.width = "15px";
+		AscorLogo.style.border = "black";
+		AscorLogo.style.borderWidth = "1px";
+		AscorLogo.style.borderStyle = "solid";
+		AscorLogo.style.marginLeft = "5px";
+		AscorLogo.style.background = "url(http://i.cubeupload.com/hJNna8.png)";
+		AscorLogo.style.backgroundRepeat = "no-repeat";
+		AscorLogo.style.textDecoration = "none";
+		AscorLogo.style.color = "black";
+		AscorLogo.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
+		AscorLogo.style.fontSize = "13px";
+		AscorLogo.id = "nouveaubouton";
+		AscorLogo.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascor";
+		AscorListe = document.createElement("Li");
+		AscorListe.appendChild(AscorLogo);
+		AscorListe.style.cursor = "pointer";
+		AscorListe.title = "Logo Ascor";
+		AscorListe.onclick = function() {
 			document.getElementById("id_body").focus();
 			if(window.getSelection().rangeCount === "0") {
 				sel = window.getSelection()[0];
 				range = sel.getRangeAt(0);
 				range.deleteContents();
-				range.insertNode(document.createTextNode(sel + lienimageascor));
-				//document.getElementById('id_body').value = document.getElementById("id_body").value + lienimageascor;
+				range.insertNode(document.createTextNode(sel + '[img]' + AscorURLLogo + '[/img]'));
+				//document.getElementById('id_body').value = document.getElementById("id_body").value + AscorURLLogo;
 			}
 			else {
-				document.getElementById('id_body').value = lienimageascor;
+				document.getElementById('id_body').value = AscorURLLogo;
 			}
 		};
-		var placeascor = document.getElementsByTagName("ul").length - 20;
-		document.getElementsByTagName("ul")[placeascor].appendChild(listascor);
+		AscorPlace = document.getElementsByTagName("ul").length - 20;
+		document.getElementsByTagName("ul")[AscorPlace].appendChild(AscorListe);
 
 		// == Colored text ==
-		var textcolor = document.createElement("Div");
-		textcolor.style.height = "15px";
-		textcolor.style.width = "15px";
-		textcolor.style.border = "black";
-		textcolor.style.borderWidth = "1px";
-		textcolor.style.borderStyle = "solid";
-		textcolor.style.marginLeft = "5px";
-		textcolor.style.backgroundColor = "orange";
-		textcolor.style.backgroundRepeat = "no-repeat";
-		textcolor.style.textDecoration = "none";
-		textcolor.style.color = "black";
-		textcolor.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
-		textcolor.style.fontSize = "13px";
-		textcolor.id = "boutoncouleur";
-		textcolor.innerHTML = "T";
-		textcolor.style.textShadow = "none";
-		var codecouleur = '[color=orange][/color]';
-		var listecouleur = document.createElement("Li");
-		listecouleur.appendChild(textcolor);
-		listecouleur.style.cursor = "pointer";
-		listecouleur.title = "Texte Orange";
-		listecouleur.onclick = function() {
+		CouleurTexte = document.createElement("Div");
+		CouleurTexte.style.height = "15px";
+		CouleurTexte.style.width = "15px";
+		CouleurTexte.style.border = "black";
+		CouleurTexte.style.borderWidth = "1px";
+		CouleurTexte.style.borderStyle = "solid";
+		CouleurTexte.style.marginLeft = "5px";
+		CouleurTexte.style.backgroundColor = "orange";
+		CouleurTexte.style.backgroundRepeat = "no-repeat";
+		CouleurTexte.style.textDecoration = "none";
+		CouleurTexte.style.color = "black";
+		CouleurTexte.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
+		CouleurTexte.style.fontSize = "13px";
+		CouleurTexte.id = "boutoncouleur";
+		CouleurTexte.innerHTML = "T";
+		CouleurTexte.style.textAlign = "center";
+		CouleurTexte.style.textShadow = "none";
+		CouleurCode = '[color=orange][/color]';
+		CouleurListe = document.createElement("Li");
+		CouleurListe.appendChild(CouleurTexte);
+		CouleurListe.style.cursor = "pointer";
+		CouleurListe.title = "Texte Orange";
+		CouleurListe.onclick = function() {
 			document.getElementById("id_body").focus();
 			if(window.getSelection().rangeCount === "0") {
 				sel = window.getSelection()[0];
 				range = sel.getRangeAt(0);
 				range.deleteContents();
-				range.insertNode(document.createTextNode(sel + codecouleur));
-				//document.getElementById('id_body').value = document.getElementById("id_body").value + codecouleur;
+				range.insertNode(document.createTextNode(sel + CouleurCode));
+				//document.getElementById('id_body').value = document.getElementById("id_body").value + CouleurCode;
 			}
 			else {
-				document.getElementById('id_body').value = codecouleur;
+				document.getElementById('id_body').value = CouleurCode;
 			}
 		};
-		var placecouleur = document.getElementsByTagName("ul").length - 22;
-		document.getElementsByTagName("ul")[placecouleur].appendChild(listecouleur);
+		CouleurPlace = document.getElementsByTagName("ul").length - 22;
+		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
     }
 	else {
-		console.log('[INFO] No reply zone detected.');
+		console.log('[INFO] No reply zone detected. Topic closed.');
 	}
-	
-	if (urlcourt=="https://scratch.mit.edu/discuss/settings/"){
+
+	if (URLCourt == URLSignature){
 		console.log('[INFO] Activating "Signature" features');
-		var range, sel;
 		// == Ascor Logo ==
-		var logoAscor = document.createElement("Div");
-		logoAscor.style.height = "15px";
-		logoAscor.style.width = "15px";
-		logoAscor.style.border = "black";
-		logoAscor.style.borderWidth = "1px";
-		logoAscor.style.borderStyle = "solid";
-		logoAscor.style.marginLeft = "5px";
-		logoAscor.style.backgroundImage = 'url("https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/Ascor%20logo.png")';
-		logoAscor.style.backgroundRepeat = "no-repeat";
-		logoAscor.style.textDecoration = "none";
-		logoAscor.style.color = "black";
-		logoAscor.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
-		logoAscor.style.fontSize = "13px";
-		logoAscor.id = "nouveaubouton";
-		logoAscor.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascor";
-		var lienimageascor = '[img]http://i.cubeupload.com/hJNna8.png[/img]';
-		var listascor = document.createElement("Li");
-		listascor.appendChild(logoAscor);
-		listascor.style.cursor = "pointer";
-		listascor.title = "Logo Ascor";
-		listascor.onclick = function() {
+		AscorLogo = document.createElement("Div");
+		AscorLogo.style.height = "15px";
+		AscorLogo.style.width = "15px";
+		AscorLogo.style.border = "black";
+		AscorLogo.style.borderWidth = "1px";
+		AscorLogo.style.borderStyle = "solid";
+		AscorLogo.style.marginLeft = "5px";
+		//AscorLogo.style.backgroundImage = 'url(http://i.cubeupload.com/hJNna8.png)';
+		AscorLogo.style.backgroundImage = AscorURLLogo;
+		AscorLogo.style.backgroundRepeat = "no-repeat";
+		AscorLogo.style.textDecoration = "none";
+		AscorLogo.style.color = "black";
+		AscorLogo.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
+		AscorLogo.style.fontSize = "13px";
+		AscorLogo.id = "nouveaubouton";
+		AscorLogo.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascor";
+		AscorListe = document.createElement("Li");
+		AscorListe.appendChild(AscorLogo);
+		AscorListe.style.cursor = "pointer";
+		AscorListe.title = "Logo Ascor";
+		AscorListe.onclick = function() {
 			document.getElementById("id_signature").focus();
 			if(window.getSelection().rangeCount === "0") {
 				sel = window.getSelection()[0];
 				range = sel.getRangeAt(0);
 				range.deleteContents();
-				range.insertNode(document.createTextNode(sel + lienimageascor));
-				//document.getElementById('id_signature').value = document.getElementById("id_signature").value + lienimageascor;
+				range.insertNode(document.createTextNode(sel + "[img]" + AscorURLLogo + "[/img]"));
+				//document.getElementById('id_signature').value = document.getElementById("id_signature").value + AscorURLLogo;
 			}
 			else {
-				document.getElementById('id_signature').value = lienimageascor;
+				document.getElementById('id_signature').value = AscorURLLogo;
 			}
 		};
-		var placeascor = document.getElementsByTagName("ul").length - 20;
-		document.getElementsByTagName("ul")[placeascor].appendChild(listascor);
+		AscorPlace = document.getElementsByTagName("ul").length - 20;
+		document.getElementsByTagName("ul")[AscorPlace].appendChild(AscorListe);
 
 		// == Colored text ==
-		var textcolor = document.createElement("Div");
-		textcolor.style.height = "15px";
-		textcolor.style.width = "15px";
-		textcolor.style.border = "black";
-		textcolor.style.borderWidth = "1px";
-		textcolor.style.borderStyle = "solid";
-		textcolor.style.marginLeft = "5px";
-		textcolor.style.backgroundColor = "orange";
-		textcolor.style.backgroundRepeat = "no-repeat";
-		textcolor.style.textDecoration = "none";
-		textcolor.style.color = "black";
-		textcolor.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
-		textcolor.style.fontSize = "13px";
-		textcolor.id = "boutoncouleur";
-		textcolor.innerHTML = "T";
-		textcolor.style.textShadow = "none";
-		var codecouleur = '[color=orange][/color]';
-		var listecouleur = document.createElement("Li");
-		listecouleur.appendChild(textcolor);
-		listecouleur.style.cursor = "pointer";
-		listecouleur.title = "Texte Orange";
-		listecouleur.onclick = function() {
+		CouleurTexte = document.createElement("Div");
+		CouleurTexte.style.height = "15px";
+		CouleurTexte.style.width = "15px";
+		CouleurTexte.style.border = "black";
+		CouleurTexte.style.borderWidth = "1px";
+		CouleurTexte.style.borderStyle = "solid";
+		CouleurTexte.style.marginLeft = "5px";
+		CouleurTexte.style.backgroundColor = "orange";
+		CouleurTexte.style.backgroundRepeat = "no-repeat";
+		CouleurTexte.style.textDecoration = "none";
+		CouleurTexte.style.color = "black";
+		CouleurTexte.style.fontFamily = 'Helvetica Neue,Helvetica,Arial,sans-serif';
+		CouleurTexte.style.fontSize = "13px";
+		CouleurTexte.id = "boutoncouleur";
+		CouleurTexte.innerHTML = "T";
+		CouleurTexte.style.textAlign = "center";
+		CouleurTexte.style.textShadow = "none";
+		CouleurCode = "[color=orange][/color]";
+		CouleurListe = document.createElement("Li");
+		CouleurListe.appendChild(CouleurTexte);
+		CouleurListe.style.cursor = "pointer";
+		CouleurListe.title = "Texte Orange";
+		CouleurListe.onclick = function() {
 			document.getElementById("id_signature").focus();
 			if(window.getSelection().rangeCount === "0") {
 				sel = window.getSelection()[0];
 				range = sel.getRangeAt(0);
 				range.deleteContents();
-				range.insertNode(document.createTextNode(sel + codecouleur));
-				//document.getElementById('id_signature').value = document.getElementById("id_signature").value + codecouleur;
+				range.insertNode(document.createTextNode(sel + CouleurCode));
+				//document.getElementById('id_signature').value = document.getElementById("id_signature").value + CouleurCode;
 			}
 			else {
-				document.getElementById('id_signature').value = codecouleur;
+				document.getElementById('id_signature').value = CouleurCode;
 			}
 		};
-		var placecouleur = document.getElementsByTagName("ul").length - 22;
-		document.getElementsByTagName("ul")[placecouleur].appendChild(listecouleur);
+		CouleurPlace = document.getElementsByTagName("ul").length - 22;
+		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
 	}
-	
-    if (urlcourt=="https://scratch.mit.edu/accounts/settings/"){
+
+    if (URLCourt== URLSettings){
     	console.log('[INFO] Activating "Settings" features');
-	   /*
+	/*
 	var form = document.createElement("form");
 	form.className = "switch";
 	form.id = "switchid";
@@ -193,5 +230,5 @@
 	document.getElementById("switchid").appendChild(input);
 	*/
     }
-    console.warn("[HELP] Help is avaliable for the Scratch Userscript on https://smrman.github.io/Scratch-Forum-UserScript/contact.html");
+    console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
 })();
