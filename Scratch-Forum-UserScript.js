@@ -4,9 +4,7 @@
 	var UpdateHour = "19:00";
 	var UpdateDate = "23-06-2017";
     console.info("[INFO] Scratch-Forum-UserScript by Smrman | update " + UpdateDate + " " + UpdateHour + " GMT+1");
-    
 	// Déclaration variables
-	
 	var range;
 	var sel;
 	var AscorLogo;
@@ -20,12 +18,12 @@
 	var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/contact.html";
 	var URLTopic = "https://scratch.mit.edu/discuss/topic/";
 	var URLSignature = "https://scratch.mit.edu/discuss/settings/";
+	var URLModify = "https://scratch.mit.edu/discuss/post/";
 	var URLSettings = "https://scratch.mit.edu/accounts/settings/";
 	var URLCourt = "";
     var URLPosition = 0;
     var URLLong = window.location.href;
 	var URLSlashCount = 0;
-	
 	do {
     	while (URLLong.charAt(URLPosition) != "/" && URLPosition < URLLong.length){
 			URLCourt = URLCourt + URLLong.charAt(URLPosition);
@@ -36,20 +34,23 @@
         URLSlashCount = URLSlashCount + 1;
     } while (URLSlashCount < 5 && URLPosition < URLLong.length);
     console.log("[INFO] You are currently on page " + URLCourt);
-	
-	if (URLCourt == URLTopic && document.getElementsByTagName("textarea").length > 0){
+	if (URLCourt == URLTopic){
     	console.log('[INFO] Activating "Discuss" features');
+		if (document.getElementsByTagName("textarea").length > 0){
 		AffichageTout("id_body",20,22);
+		}
+		else {
+			console.log('[INFO] No reply zone detected. Topic closed.');
+		}
     }
-	else {
-		console.log('[INFO] No reply zone detected. Topic closed.');
-	}
-
 	if (URLCourt == URLSignature){
 		console.log('[INFO] Activating "Signature" features');
 		AffichageTout("id_signature",20,22);
 	}
-
+	if (URLCourt == URLModify){
+		console.log('[INFO] Activating "Editing" features');
+		AffichageTout("id_signature",20,22);
+	}
     if (URLCourt== URLSettings){
     	console.log('[INFO] Activating "Settings" features');
 	/*
@@ -66,7 +67,6 @@
 	document.getElementById("switchid").appendChild(input);
 	*/
     }
-	
 	function AffichageTout(TagId,AscorPosition,CouleurPosition) {
 				// == Ascor Logo ==
 		AscorLogo = document.createElement("Div");
@@ -143,6 +143,5 @@
 		CouleurPlace = document.getElementsByTagName("ul").length - CouleurPosition;
 		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
 	}
-	
     console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
 })();
