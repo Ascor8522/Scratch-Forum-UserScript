@@ -143,6 +143,6 @@
 		CouleurPlace = document.getElementsByTagName("ul").length - CouleurPosition;
 		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
 	}
-	document.getElementsByTagName("li")[3].innerHTML = '<a href="/discuss">Discussion</a>';
+	document.getElementsByTagName("li")[3].innerHTML = '<a href="/discuss">Discuter</a>';
     	console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
 })();
