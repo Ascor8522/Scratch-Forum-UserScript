@@ -21,8 +21,8 @@
 	var URLModify = "https://scratch.mit.edu/discuss/post/";
 	var URLSettings = "https://scratch.mit.edu/accounts/settings/";
 	var URLCourt = "";
-    var URLPosition = 0;
-    var URLLong = window.location.href;
+    	var URLPosition = 0;
+    	var URLLong = window.location.href;
 	var URLSlashCount = 0;
 	do {
     	while (URLLong.charAt(URLPosition) != "/" && URLPosition < URLLong.length){
@@ -143,5 +143,6 @@
 		CouleurPlace = document.getElementsByTagName("ul").length - CouleurPosition;
 		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
 	}
-    console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
+	document.getElementsByTagName("li")[2].innerHTML = '<a href="/discuss">Discussion</a>';
+    	console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
 })();
