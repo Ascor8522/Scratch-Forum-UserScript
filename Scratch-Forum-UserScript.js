@@ -225,5 +225,5 @@
 	document.getElementsByTagName("li")[3].innerHTML = '<a href="/discuss">Discuter</a>';
 
 	//message d'aide
-	console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
+	console.warn("[HELP] Help is avaliable for the Scratch Userscript on " + URLHelp);
 })();
