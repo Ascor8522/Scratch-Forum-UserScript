@@ -1,93 +1,93 @@
 (function() {
-    'use strict';
+	'use strict';
 	console.clear();
 	var UpdateHour = "01:00";
 	var UpdateDate = "26-07-2017";
-    console.info("[INFO] Scratch-Forum-UserScript by Smrman | update " + UpdateDate + " " + UpdateHour + " GMT+1");
+	console.info("[INFO] Scratch-Forum-UserScript by Smrman | update " + UpdateDate + " " + UpdateHour + " GMT+1");
 	//variables
-    var AscorURLLogo = 'http://i.cubeupload.com/hJNna8.png';
-    var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/contact.html";
-    var URLTopic = "https://scratch.mit.edu/discuss/topic/";
-    var URLSignature = "https://scratch.mit.edu/discuss/settings/";
-    var URLModify = "https://scratch.mit.edu/discuss/post/";
-    var URLSettings = "https://scratch.mit.edu/accounts/settings/";
+	var AscorURLLogo = 'http://i.cubeupload.com/hJNna8.png';
+	var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/contact.html";
+	var URLTopic = "https://scratch.mit.edu/discuss/topic/";
+	var URLSignature = "https://scratch.mit.edu/discuss/settings/";
+	var URLModify = "https://scratch.mit.edu/discuss/post/";
+	var URLSettings = "https://scratch.mit.edu/accounts/settings/";
 	var UserIcon = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/icon%20inactive.svg";
-    var UserIcon2 = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/icon%20active.svg";
-    var URLSearch1 = "https://scratch.mit.edu/search/projects/";
-    var URLSearch2 = "https://scratch.mit.edu/search/studios/";
+	var UserIcon2 = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/icon%20active.svg";
+	var URLSearch1 = "https://scratch.mit.edu/search/projects/";
+	var URLSearch2 = "https://scratch.mit.edu/search/studios/";
 	var URL = window.location.href;
-    var URLCourt = "";
-    var URLPosition = 0;
-    var URLSlashCount = 0;
-    var Parametre = "non";
-    var i;
-    //controle de la page
+	var URLCourt = "";
+	var URLPosition = 0;
+	var URLSlashCount = 0;
+	var Parametre = "non";
+	var i;
+	//controle de la page
 
-    while (Parametre == "non" && i<URL.length) {
-        if (window.location.href.charAt(i) == "?") {
-            Parametre = "oui";
-            break;
-        }
-        else {
-            Parametre = "non";
-        }
-        i = i + 1;
-    }
-    if (Parametre == "oui") {
-        URLParameterLocation = i;
-        URLParameterLength = window.location.href.length - URLParameterLocation;
-        i = URLParameterLocation;
-        while (i < window.location.href.length) {
-            URLParameter = URLParameter + window.location.href.charAt(i + 3);
-            i = i + 1;
-        }
-        for (i=0; i < URLParameterLocation; i++) {
-            URLCourt = URLCourt + window.location.href.charAt(i);
-        }
-        if ((URLCourt.charAt(URLCourt.length-1)) != "/") {
-            URLCourt = URLCourt + "/";
-            window.location.href = URLCourt + "?q=" + URLParameter;
-        }
-    }
-    URLPosition = 0;
-    do {
-        while (URL.charAt(URLPosition) != "/" && URLPosition < URL.length){
-            URLCourt = URLCourt + URL.charAt(URLPosition);
-            URLPosition = URLPosition + 1;
-        }
-        URLCourt = URLCourt + URL.charAt(URLPosition);
-        URLPosition = URLPosition + 1;
-        URLSlashCount = URLSlashCount + 1;
-    } while (URLSlashCount < 5 && URLPosition < URL.length);
-    
+	while (Parametre == "non" && i<URL.length) {
+		if (window.location.href.charAt(i) == "?") {
+			Parametre = "oui";
+			break;
+		}
+		else {
+			Parametre = "non";
+		}
+		i = i + 1;
+	}
+	if (Parametre == "oui") {
+		URLParameterLocation = i;
+		URLParameterLength = window.location.href.length - URLParameterLocation;
+		i = URLParameterLocation;
+		while (i < window.location.href.length) {
+			URLParameter = URLParameter + window.location.href.charAt(i + 3);
+			i = i + 1;
+		}
+		for (i=0; i < URLParameterLocation; i++) {
+			URLCourt = URLCourt + window.location.href.charAt(i);
+		}
+		if ((URLCourt.charAt(URLCourt.length-1)) != "/") {
+			URLCourt = URLCourt + "/";
+			window.location.href = URLCourt + "?q=" + URLParameter;
+		}
+	}
+	URLPosition = 0;
+	do {
+		while (URL.charAt(URLPosition) != "/" && URLPosition < URL.length){
+			URLCourt = URLCourt + URL.charAt(URLPosition);
+			URLPosition = URLPosition + 1;
+		}
+		URLCourt = URLCourt + URL.charAt(URLPosition);
+		URLPosition = URLPosition + 1;
+		URLSlashCount = URLSlashCount + 1;
+	} while (URLSlashCount < 5 && URLPosition < URL.length);
+
 	console.log("[INFO] You are currently on page " + URLCourt);
-	
+
 	//Topic
 	if (URLCourt == URLTopic){
-    	console.log('[INFO] Activating "Discuss" features');
+		console.log('[INFO] Activating "Discuss" features');
 		if (document.getElementsByTagName("textarea").length > 0){
 		BoutonsForum("id_body",20,22);
 		}
 		else {
 			console.log('[INFO] No reply zone detected. Topic closed.');
 		}
-    }
-	
+	}
+
 	//Modifier signature
 	if (URLCourt == URLSignature){
 		console.log('[INFO] Activating "Signature" features');
 		BoutonsForum("id_signature",20,22);
 	}
-	
+
 	//Modifier message
 	if (URLCourt == URLModify){
 		console.log('[INFO] Activating "Editing" features');
 		BoutonsForum("id_signature",20,22);
 	}
-	
+
 	//Parametres custom
-    if (URLCourt== URLSettings){
-    	console.log('[INFO] Activating "Settings" features');
+	if (URLCourt== URLSettings){
+		console.log('[INFO] Activating "Settings" features');
 	/*
 	var form = document.createElement("form");
 	form.className = "switch";
@@ -101,8 +101,8 @@
 	input.id = "inputid";
 	document.getElementById("switchid").appendChild(input);
 	*/
-    }
-	
+	}
+
 	//modifier forum
 	function BoutonsForum(TagId,AscorPosition,CouleurPosition) {
 		//variables
@@ -190,40 +190,40 @@
 		CouleurPlace = document.getElementsByTagName("ul").length - CouleurPosition;
 		document.getElementsByTagName("ul")[CouleurPlace].appendChild(CouleurListe);
 	}
-	
+
 	//chercher
 	if (URLCourt == URLSearch1 || URLCourt == URLSearch2){
-        console.log('[INFO] Activating "Search" features');
-        var imagesearch = document.createElement("img");
-        var spansearch = document.createElement("span");
-        var listesearch = document.createElement("li");
-        var asearch = document.createElement("a");
-        imagesearch.src = UserIcon;
-        imagesearch.className = "tab-icon studios";
-        imagesearch.style.width = "23px";
-        imagesearch.id = "imagesearch";
-        spansearch.innerHTML = "Les Utilisateurs";
-        spansearch.id = "spansearch";
-        listesearch.id = "listesearch";
-        asearch.id = "asearch";
-        asearch.onclick = function() {
-            document.getElementsByClassName("active")[0].className = "";
-            document.getElementById("listesearch").className = "active";
-            document.getElementById("imagesearch").src = UserIcon2;
-            document.getElementsByClassName("tab-icon studios")[0].src = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/studios-inactive.svg";
-            document.getElementsByClassName("tab-icon projects")[0].src = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/projects-inactive.svg";
-            document.getElementsByClassName("grid")[0].innerHTML = "Un peu de patience, en attente des résultats...";
-        };
-        document.getElementsByClassName("sub-nav tabs")[0].appendChild(asearch);
-        document.getElementById("asearch").appendChild(listesearch);
-        document.getElementById("listesearch").appendChild(imagesearch);
-        document.getElementById("listesearch").appendChild(spansearch);
-        document.getElementsByClassName("title-banner-h1")[0].innerHTML = "<span>Résultats de la recherche</span>";
-    }
-	
+		console.log('[INFO] Activating "Search" features');
+		var imagesearch = document.createElement("img");
+		var spansearch = document.createElement("span");
+		var listesearch = document.createElement("li");
+		var asearch = document.createElement("a");
+		imagesearch.src = UserIcon;
+		imagesearch.className = "tab-icon studios";
+		imagesearch.style.width = "23px";
+		imagesearch.id = "imagesearch";
+		spansearch.innerHTML = "Les Utilisateurs";
+		spansearch.id = "spansearch";
+		listesearch.id = "listesearch";
+		asearch.id = "asearch";
+		asearch.onclick = function() {
+			document.getElementsByClassName("active")[0].className = "";
+			document.getElementById("listesearch").className = "active";
+			document.getElementById("imagesearch").src = UserIcon2;
+			document.getElementsByClassName("tab-icon studios")[0].src = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/studios-inactive.svg";
+			document.getElementsByClassName("tab-icon projects")[0].src = "https://smrman.github.io/Scratch-Forum-UserScript/assets/img/projects-inactive.svg";
+			document.getElementsByClassName("grid")[0].innerHTML = "Un peu de patience, en attente des résultats...";
+		};
+		document.getElementsByClassName("sub-nav tabs")[0].appendChild(asearch);
+		document.getElementById("asearch").appendChild(listesearch);
+		document.getElementById("listesearch").appendChild(imagesearch);
+		document.getElementById("listesearch").appendChild(spansearch);
+		document.getElementsByClassName("title-banner-h1")[0].innerHTML = "<span>Résultats de la recherche</span>";
+	}
+
 	//remplacementdu bouton à propos par discuter
 	document.getElementsByTagName("li")[3].innerHTML = '<a href="/discuss">Discuter</a>';
-    
+
 	//message d'aide
 	console.warn("[HELP] Help is avaliable for the Scratch Userscript on" + URLHelp);
 })();
