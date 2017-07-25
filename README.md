@@ -5,6 +5,7 @@ The main goal of this script is to add an easier way to personalize the text you
 <br>
 <br> • Changing the text color (only onrange avaliable now)
 <br> • Adding custom emojis easily
+<br> • Adding custom search filters
 <br> • More coming soon...
 <br>
 All usefull informations can be found on: https://smrman.github.io/Scratch-Forum-UserScript/index.html
