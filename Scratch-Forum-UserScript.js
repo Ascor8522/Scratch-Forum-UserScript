@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	console.clear();
-	var UpdateHour = "01:00";
+	var UpdateHour = "12:30";
 	var UpdateDate = "26-07-2017";
 	console.info("[INFO] Scratch-Forum-UserScript by Smrman | update " + UpdateDate + " " + UpdateHour + " GMT+1");
 	//variables
@@ -20,7 +20,10 @@
 	var URLPosition = 0;
 	var URLSlashCount = 0;
 	var Parametre = "non";
-	var i;
+	var i = 0;
+	var URLParameterLocation = 0;
+	var URLParameterLength = 0;
+	var URLParameter = "";
 	//controle de la page
 
 	while (Parametre == "non" && i<URL.length) {
@@ -36,7 +39,6 @@
 	if (Parametre == "oui") {
 		URLParameterLocation = i;
 		URLParameterLength = window.location.href.length - URLParameterLocation;
-		i = URLParameterLocation;
 		while (i < window.location.href.length) {
 			URLParameter = URLParameter + window.location.href.charAt(i + 3);
 			i = i + 1;
@@ -50,6 +52,7 @@
 		}
 	}
 	URLPosition = 0;
+	URLCourt = "";
 	do {
 		while (URL.charAt(URLPosition) != "/" && URLPosition < URL.length){
 			URLCourt = URLCourt + URL.charAt(URLPosition);
