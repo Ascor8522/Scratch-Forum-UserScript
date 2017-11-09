@@ -76,7 +76,7 @@
 		}
 	}
 	if (URLCourt == "https://scratch.mit.edu/users/smrman/") { 
-		document.getElementsByClassName("header-text").children[0].innerHTML = "smrman*";
+		document.getElementsByClassName("header-text")[0].children[0].innerHTML="Smrman*";
 	}
 	//Modifier signature
 	if (URLCourt == URLSignature){
