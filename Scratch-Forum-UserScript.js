@@ -75,7 +75,7 @@
 			console.log('[INFO] No reply zone detected. Topic closed.');
 		}
 	}
-	if (URLCourt=="https://scratch.mit.edu/users/smrman/") {
+	if (URLCourt == "https://scratch.mit.edu/users/smrman/") { 
 		document.getElementsByClassName("header-text").children[0].innerHTML = "smrman*";
 	}
 	//Modifier signature
