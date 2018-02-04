@@ -6,7 +6,7 @@
 	var Update = {hour:"02:00", date:"04-02-2018"};
 	console.info("[INFO] Scratch-Forum-UserScript par Smrman | update " + Update.date + " " + Update.hour + " GMT+1");
 	var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/html/contact.html";
-	console.warn("[HELP] Help is avaliable for the Scratch Userscript on " + URLHelp);
+	console.warn("[HELP] Help is avaliable for the Scratch Userscript on\n" + URLHelp);
 
 	var URL = window.location.href.split("/");
 
@@ -50,6 +50,8 @@
 			break;
 		case "search": //On a search page
 			AdvancedSearch();
+			break;
+		case "undefined": //On the homepage
 			break;
 		default: //No special page
 			console.log('[INFO] No special page dected.');
