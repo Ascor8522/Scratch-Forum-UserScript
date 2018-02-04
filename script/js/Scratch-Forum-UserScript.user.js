@@ -16,7 +16,7 @@
 // @require      https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script/js/Scratch-Forum-UserScript.js
 // @require      https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script/js/discuss.js
 // @require      https://raw.githubusercontent.com/Smrman/Scratch-Forum-UserScript/master/script/js/search.js
-// @resource     
+// @resource
 // @connect
 // @run-at       document-idle
 // @grant        none
