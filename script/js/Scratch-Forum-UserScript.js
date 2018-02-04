@@ -8,7 +8,7 @@
 	var URLHelp = "https://smrman.github.io/Scratch-Forum-UserScript/html/contact.html";
 	console.warn("[HELP] Help is avaliable for the Scratch Userscript on " + URLHelp);
 
-	var URL[] = window.location.href.split("/");
+	var URL = window.location.href.split("/");
 
 	console.log("[INFO] You are currently on page " + URL[4] + '/' + URL[5]);
 
