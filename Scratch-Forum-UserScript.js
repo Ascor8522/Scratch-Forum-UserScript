@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	alert("Votre userscrip n'est pas à jour!\nMerci de vérifier dans TamerprMonkey/GeasMonkey qu'il est bien en version 2.0 et, si non, mettez le à jour manuellement.\nContactez @Smrman en cas problème.");
 	console.clear();
 	var UpdateHour = "12:30";
 	var UpdateDate = "26-07-2017";
