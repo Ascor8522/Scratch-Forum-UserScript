@@ -49,7 +49,7 @@
 			}
 			break;
 		case "search": //On a search page
-
+			AdvancedSearch();
 			break;
 		default: //No special page
 			console.log('[INFO] No special page dected.');
